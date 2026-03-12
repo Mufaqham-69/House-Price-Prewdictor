@@ -1,1 +1,1 @@
-# House-Price-Prewdictor
+# House-Price-Predictor
