@@ -1,0 +1,12 @@
+ pip install pandas
+  numpy 
+ scikit-learn
+  xgboost lightgbm \ 
+  fastapi 
+  uvicorn 
+  pydantic
+   mlflow 
+   joblib 
+   pytest
+    httpx 
+ pip freeze > requirements.txt

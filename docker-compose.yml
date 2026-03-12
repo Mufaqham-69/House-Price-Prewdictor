@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models:rw
+      - ./mlflow.db:/app/mlflow.db:rw
+    environment:
+      # If you want to enable MLflow tracking inside the container, set this.
+      # MLFLOW_TRACKING_URI: sqlite:///mlflow.db
+      # MLFLOW_EXPERIMENT_NAME: house_price_training
+      # (Optional) adjust logging/uvicorn settings:
+      # UVICORN_LOG_LEVEL: info
+      # UVICORN_WORKERS: 1
+      
+    # NOTE: The FastAPI app will start even if the model is missing; it prints a warning.
+
+  train:
+    build: .
+    command: ["python", "src/train.py"]
+    volumes:
+      - ./models:/app/models:rw
+      - ./mlflow.db:/app/mlflow.db:rw
+    environment:
+      # If you want MLflow to log into mlflow.db inside the repo:
+      # MLFLOW_TRACKING_URI: sqlite:///mlflow.db
+      
+    # This service is meant to be run as needed (not long-running).
+    # Use: docker compose run --rm train
