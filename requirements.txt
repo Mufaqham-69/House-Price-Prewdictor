@@ -4,7 +4,7 @@
   xgboost 
   lightgbm 
   fastapi 
-  uvicorn 
+  uvicorn [standard]
   pydantic
    mlflow 
    joblib 
