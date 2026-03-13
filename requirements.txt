@@ -1,7 +1,8 @@
- pip install pandas
+  pandas
   numpy 
  scikit-learn
-  xgboost lightgbm \ 
+  xgboost 
+  lightgbm 
   fastapi 
   uvicorn 
   pydantic
@@ -9,4 +10,4 @@
    joblib 
    pytest
     httpx 
- pip freeze > requirements.txt
+ 
